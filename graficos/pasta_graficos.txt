@@ -1,0 +1,1 @@
+pasta onde a imagem dos graficos serão gerados

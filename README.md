@@ -6,7 +6,7 @@ Sistema de gerenciamento financeiro via linha de comando (CLI), desenvolvido com
 
 - Murilo Boff  
 - João Vitor Gotz  
-- Guilherme Biazzuti  
+- Guilherme Biazuti  
 
 ## 📋 Funcionalidades
 

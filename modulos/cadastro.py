@@ -1,0 +1,1 @@
+#Funções que adicionam registros no sistema, ganho, gasto, despesa, dados financeiros

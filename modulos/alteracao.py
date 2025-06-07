@@ -1,0 +1,1 @@
+#Funções que editam ou removem registros já existentes

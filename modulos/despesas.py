@@ -1,6 +1,9 @@
 def pedir_mes_despesa():
     print("-------------------------------------------")
     mes_despesa=int(input("Qual mes deseja registrar a despesa: "))
+    while mes_despesa < 1 or mes_despesa > 12:
+        print("Mes invalido, por favor escolha um mes entre 1 e 12.")
+        mes_despesa = int(input("Qual mes deseja registrar a despesa: "))
     print("-------------------------------------------")
     return mes_despesa
 
@@ -14,9 +17,8 @@ def registrar_despesa(mes, dados):
     for mes_despesa_total, resultado_despesa_total in dados.items():
         if mes_despesa_total == mes:
             resultado_despesa_total[f"desp-{nome_despesa}"] = valor_despesa
-            
+    print(dados)   
     return dados
 
 
-            
-                
+       

@@ -1,5 +1,5 @@
 from utils import interface
-from modulos import investimentos, mostrar_dados, despesas
+from modulos import investimentos, mostrar_dados, despesas, saques
 import os
 
 if __name__ == "__main__":
@@ -19,6 +19,11 @@ if __name__ == "__main__":
         elif opcao_menu == 4:
             mes_escolhido_investimento=investimentos.pedir_mes_investimento()
             dados_mestre_com_investimentos = investimentos.registrar_investimento(mes_escolhido_investimento, dados_mestre)
+            dados_mestre = dados_mestre_com_investimentos
+        elif opcao_menu == 6:
+            mes_escolhido_saque = saques.pedir_mes_saque()
+            dados_mestre_com_saques = saques.registrar_saque(mes_escolhido_saque, dados_mestre)
+            dados_mestre = dados_mestre_com_saques
         elif opcao_menu==14:
             print("--------------------")
             print("SAINDO DO APLICATIVO")

@@ -1,6 +1,9 @@
 def pedir_mes_investimento():
     print("-------------------------------------------")
     mes_investimento=int(input("Qual mes deseja registrar o investimento: "))
+    while mes_investimento < 1 or mes_investimento > 12:
+        print("Mes invalido, por favor escolha um mes entre 1 e 12.")
+        mes_investimento = int(input("Qual mes deseja registrar o investimento: "))
     print("-------------------------------------------")
     return mes_investimento
 

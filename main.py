@@ -12,6 +12,14 @@ if __name__ == "__main__":
         #print(opcao_menu)  # Teste para ver se a opção está correta
         if opcao_menu==1:
             mostrar_dados.mostrar_dados_user(dados_mestre)
+        elif opcao_menu == 2:
+            nome = str(input("Digite seu nome: "))
+            valor = float(input("Digite o valor: "))
+            mes = int(input("Digite o mês para gerir EX(06 => Junho): "))
+            while mes < 1 or mes > 12:
+                mes = int(input("Tente Novamente!! Digite o mês para gerir EX(06 => Junho): "))
+            dados_mestre[mes]["nome"] = nome
+            dados_mestre[mes]["valor"] = valor
         elif opcao_menu == 3:
             mes_escolhido_despesa=despesas.pedir_mes_despesa()
             dados_mestre_com_despesas = despesas.registrar_despesa(mes_escolhido_despesa, dados_mestre)

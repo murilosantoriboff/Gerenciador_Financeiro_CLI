@@ -19,7 +19,6 @@ def interface_dados_usuario():
     return dados
 
 def menu_principal():
-    os.system("cls") # Limpa o terminal
     print("*=*=*=*=*=*=*=*=*=")
     print("Menu Principal")
     print("*=*=*=*=*=*=*=*=*=")
@@ -36,10 +35,11 @@ def menu_principal():
     print('11 - Relatorio Anual')
     print('12 - Relatorio Anual em PDF')
     print('13 - Relatorio Grafico')
+    print('14 - Sair')
     try:
         opcao = int(input("Escolha uma Opcao: "))
-        while opcao < 1 or opcao >13:
-            opcao = int(input("Tente Novamente!! Escolha uma Opcao: "))
+        while opcao < 1 or opcao > 14:
+            opcao = int(input("Escolha uma Opcao valida: "))
     except (TypeError, ValueError):
         print("------------------------------------------")
         print("Tente Novamente com entradas corretas!! ")

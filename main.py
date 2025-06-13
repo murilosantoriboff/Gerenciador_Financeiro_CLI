@@ -26,6 +26,8 @@ if __name__ == "__main__":
             mes_escolhido_saque = saques.pedir_mes_saque()
             dados_mestre_com_saques = saques.registrar_saque(mes_escolhido_saque, dados_mestre)
             dados_mestre = dados_mestre_com_saques
+        elif opcao_menu == 7:
+            investimentos.simular_investimento()
         elif opcao_menu==14:
             print("--------------------")
             print("SAINDO DO APLICATIVO")

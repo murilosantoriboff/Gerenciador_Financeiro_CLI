@@ -11,20 +11,39 @@ def pedir_mes_investimento():
             print("Entrada inválida. Digite apenas números.")
 
 
-def registrar_investimento(mes, dados):
-    nome_do_investimento=str(input("Escreva o nome do investimento: "))
-    print("-------------------------------------------")
-    while True:
-        try:
-            valor_investimento = float(input("Escreva o valor do investimento: "))
-            print("-------------------------------------------")
-            print()
-            break
-        except ValueError:
-            print("Entrada inválida. Digite apenas números.")
-            continue
-    for mes_investimento_total, resultado_investimento_total in dados.items():
-        if mes_investimento_total == mes:
-            resultado_investimento_total[f"inv-{nome_do_investimento}"] = valor_investimento
-            print(dados)
-    return dados
+def simular_investimento():
+    print("\n=== Simulação de Investimento ===")
+    print("Escolha o tipo de investimento:")
+    print("1 - CDB (1.33% ao mês)")
+    print("2 - Tesouro Selic (1.23% ao mês)")
+    print("3 - LCI (0.90% ao mês)")
+
+    tipos = {
+        1: ("CDB", 0.0133),
+        2: ("Tesouro Selic", 0.0123),
+        3: ("LCI", 0.0090)
+    }
+
+    try:
+        tipo = int(input("Digite a opção (1 a 3): "))
+        while tipo not in tipos:
+            tipo = int(input("Opção inválida. Escolha entre 1 e 3: "))
+
+        nome_investimento, taxa = tipos[tipo]
+
+        valor_investido = float(input("Digite o valor a investir: R$ "))
+        tempo_meses = int(input("Digite o tempo de investimento (em meses): "))
+
+        montante = valor_investido * ((1 + taxa) ** tempo_meses)
+        lucro = montante - valor_investido
+
+        print(f"\n--- Resultado da Simulação ({nome_investimento}) ---")
+        print(f"Valor investido: R$ {valor_investido:.2f}")
+        print(f"Tempo: {tempo_meses} meses")
+        print(f"Taxa: {taxa * 100:.2f}% ao mês")
+        print(f"Lucro: R$ {lucro:.2f}")
+        print(f"Valor final: R$ {montante:.2f}\n")
+
+    except ValueError:
+        print("Erro nas entradas. Tente novamente.\n")
+        return simular_investimento()

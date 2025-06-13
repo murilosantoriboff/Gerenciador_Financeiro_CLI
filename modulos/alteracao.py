@@ -1,10 +1,24 @@
-#Funções que editam ou removem registros já existentes
 def adicionar_dados(dados_mestre):
-    valor = float(input("Digite o valor: "))
-    mes = int(input("\nInsira o mês desejado para receber o valor EX(06 => Junho): "))
-    while mes<1 or mes>12:
-            mes=int(input("Tente Novamente!! Digite o mês desejado EX(06 => Junho): "))
-    
-    dados_mestre[mes]["valor"] += valor
+    try:
+        nome = str(input("Digite seu nome: "))
+        valor = float(input("Digite o valor: "))
+        mes = int(input("Digite o mês para adicionar os dados (1 a 12): "))
+        while mes < 1 or mes > 12:
+            mes = int(input("Mês inválido! Digite novamente (1 a 12): "))
 
-    print(f"\nValor de R$ {valor:.2f} adicionado com sucesso para o mês {mes}!\n")
+        if "nome" not in dados_mestre[mes]:
+            dados_mestre[mes]["nome"] = nome
+        else:
+
+            print(f"Já existe um nome para o mês {mes}: {dados_mestre[mes]['nome']}")
+
+        if "valor" not in dados_mestre[mes]:
+            dados_mestre[mes]["valor"] = 0.0
+
+        dados_mestre[mes]["valor"] += valor
+
+        print(f"Adicionado R${valor:.2f} ao mês {mes} com sucesso!")
+
+    except (TypeError, ValueError):
+        print("Entrada inválida! Tente novamente.")
+        adicionar_dados(dados_mestre)

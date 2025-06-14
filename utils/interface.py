@@ -38,7 +38,7 @@ def menu_principal():
     print('14 - Sair')
     try:
         opcao = int(input("Escolha uma Opcao: "))
-        while opcao < 1 or opcao > 14:
+        while opcao < 1 or opcao >14:
             opcao = int(input("Escolha uma Opcao valida: "))
     except (TypeError, ValueError):
         print("------------------------------------------")

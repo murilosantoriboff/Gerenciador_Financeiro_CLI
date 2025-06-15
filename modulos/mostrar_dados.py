@@ -16,4 +16,11 @@ def mostrar_dados_user(dados):
                     print("Valor inserido: R$", v)
                     print("------------------------------------------")
                     print()
-                #Ver se for investimento
+                if "invest" in k:
+                    print("Valor Investido: R$", v)
+                    print("------------------------------------------")
+                    print()
+                if "desp" in k:
+                    print("Despesas: R$", v)
+                    print("------------------------------------------")
+                    print()

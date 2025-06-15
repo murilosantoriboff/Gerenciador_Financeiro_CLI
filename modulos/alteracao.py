@@ -24,6 +24,7 @@ def adicionar_dados(dados_mestre):
             dados_mestre[mes]["valor"] = 0.0
 
         dados_mestre[mes]["valor"] += valor
+        dados_mestre[mes][f"depos-{valor}"] = valor
         print("-------------------------------------------")
         print(f"Adicionado R${valor:.2f} ao mês {mes} com sucesso!")
         print("-------------------------------------------")

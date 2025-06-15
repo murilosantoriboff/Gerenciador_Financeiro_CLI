@@ -1,5 +1,5 @@
 from utils import interface
-from modulos import investimentos, mostrar_dados, despesas, saques, alteracao, registro_investimento
+from modulos import investimentos, mostrar_dados, despesas, saques, alteracao, registro_investimento, relatorios_mensais, relatorios_anuais
 
 if __name__ == "__main__":
     dados_usuario = interface.interface_dados_usuario() # Retorna uma lista com os dados do user (Nome, valor e mes)
@@ -29,14 +29,13 @@ if __name__ == "__main__":
             # Simular Financiamento
             pass
         elif opcao_menu == 8:
-            # Murilo - Relatorio Mensal
-            pass
+            mes_relat_mensal = relatorios_mensais.pedir_mes_relatorio_mensal()
+            relatorios_mensais.relatorio_mensal(dados_mestre, mes_relat_mensal)
         elif opcao_menu == 9:
             # Murilo - Relatorio Mensal PDF
             pass
         elif opcao_menu == 10:
-            # Murilo - Relatorio Anual
-            pass
+            relatorios_anuais.relatorio_anual(dados_mestre)
         elif opcao_menu == 11:
             # Murilo - Relatorio Anual PDF
             pass

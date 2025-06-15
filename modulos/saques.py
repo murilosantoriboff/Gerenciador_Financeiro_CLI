@@ -39,6 +39,11 @@ def registrar_saque(mes, dados):
                 print("-------------------------------------------")
                 break
 
+            if dados[mes]["valor"] - valor_saque <0:
+                print("-------------------------------------------")
+                print(f"Não é possivel saquar R${valor_saque:.2f} ao mês {mes}!")
+                print("-------------------------------------------")
+                break
             dados[mes]["valor"] -= valor_saque
             resultado_saque_total[f"saque-{valor_saque}"] = valor_saque
             print("-------------------------------------------")

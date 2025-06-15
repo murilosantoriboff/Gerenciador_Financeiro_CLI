@@ -26,7 +26,7 @@ if __name__ == "__main__":
         elif opcao_menu == 6:
             investimentos.simular_investimento()
         elif opcao_menu == 7:
-            # Simular Financiamento
+            # Guiby Simular Financiamento
             pass
         elif opcao_menu == 8:
             mes_relat_mensal = relatorios_mensais.pedir_mes_relatorio_mensal()

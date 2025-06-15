@@ -102,3 +102,6 @@ def gerar_relatorio_mensal_pdf(dados, mes):
         caminho_arquivo = os.path.join(caminho_relatorios, nome_arquivo)
 
         pdf.output(caminho_arquivo)
+        print("=" * 40)
+        print("Relatorio gerado com sucesso!")
+        print("=" * 40)

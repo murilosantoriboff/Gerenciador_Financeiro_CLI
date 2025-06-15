@@ -1,32 +1,29 @@
 import os
 
-def pedir_mes_despesa():
-    os.system('cls')
+def pedir_mes_investimento():
+    os.system("cls")
     while True:
         try:
             print("-------------------------------------------")
-            mes_despesa = int(input("Qual mes deseja registrar a despesa: "))
-            if 1 <= mes_despesa <= 12:
-                return mes_despesa
+            mes_investimento = int(input("Qual mes deseja registrar o investimento: "))
+            if 1 <= mes_investimento <= 12:
+                return mes_investimento
             else:
                 print("Mes invalido, por favor escolha um mes entre 1 e 12.")
         except ValueError:
             print("Entrada inválida. Digite apenas números.")
 
-
-
-def registrar_despesa(mes, dados):
-    nome_despesa = str(input("Escreva o nome da despesa: "))
+def registrar_investimento(mes, dados):
     while True:
         try:
-            valor_despesa = float(input("Escreva o valor da despesa: "))
+            valor_investimento = float(input("Escreva o valor do investimento: "))
             print("-------------------------------------------")
             print()
             break  
         except ValueError:
             print("Entrada inválida. Digite apenas números.")
             continue
-    for mes_despesa_total, resultado_despesa_total in dados.items():
-        if mes_despesa_total == mes:
-            resultado_despesa_total[f"desp-{nome_despesa}"] = valor_despesa
+    for mes_inv_total, resultado_inv_total in dados.items():
+        if mes_inv_total == mes:
+            resultado_inv_total[f"invest-{valor_investimento}"] = valor_investimento
     return dados

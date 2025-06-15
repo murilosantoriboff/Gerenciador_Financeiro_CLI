@@ -23,7 +23,7 @@ def menu_principal():
     print("Menu Principal")
     print("*=*=*=*=*=*=*=*=*=")
     print('1 - Ver seus Dados Financeiros')
-    print('2 - Adicionar Dados Financeiros (Nome, Valor e Mês)')
+    print('2 - Adicionar Dados Financeiros (Valor e Mês)')
     print('3 - Registrar Despesas')
     print('4 - Registrar Investimento')
     print('5 - Registrar Deposito')

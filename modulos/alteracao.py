@@ -1,6 +1,14 @@
+import os
+
 def adicionar_dados(dados_mestre):
     try:
-        nome = str(input("Digite seu nome: "))
+        os.system("cls")
+        print("*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+        print("Adicionar novos dados financeiros de Usuario")
+        print("*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+        for mes, resultado in dados_mestre.items():
+            if resultado != {}:
+                nome = resultado["nome"]
         valor = float(input("Digite o valor: "))
         mes = int(input("Digite o mês para adicionar os dados (1 a 12): "))
         while mes < 1 or mes > 12:
@@ -16,8 +24,10 @@ def adicionar_dados(dados_mestre):
             dados_mestre[mes]["valor"] = 0.0
 
         dados_mestre[mes]["valor"] += valor
-
+        print("-------------------------------------------")
         print(f"Adicionado R${valor:.2f} ao mês {mes} com sucesso!")
+        print("-------------------------------------------")
+        return(dados_mestre)
 
     except (TypeError, ValueError):
         print("Entrada inválida! Tente novamente.")

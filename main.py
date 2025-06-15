@@ -20,33 +20,30 @@ if __name__ == "__main__":
             dados_mestre_com_investimentos = registro_investimento.registrar_investimento(mes_escolhido_investimento, dados_mestre)
             dados_mestre = dados_mestre_com_investimentos
         elif opcao_menu == 5:
-            # Registrar Deposito
-            pass
-        elif opcao_menu == 6:
             mes_escolhido_saque = saques.pedir_mes_saque()
             dados_mestre_com_saques = saques.registrar_saque(mes_escolhido_saque, dados_mestre)
             dados_mestre = dados_mestre_com_saques
-        elif opcao_menu == 7:
+        elif opcao_menu == 6:
             investimentos.simular_investimento()
-        elif opcao_menu == 8:
+        elif opcao_menu == 7:
             # Simular Financiamento
             pass
-        elif opcao_menu == 9:
+        elif opcao_menu == 8:
             # Murilo - Relatorio Mensal
             pass
-        elif opcao_menu == 10:
+        elif opcao_menu == 9:
             # Murilo - Relatorio Mensal PDF
             pass
-        elif opcao_menu == 11:
+        elif opcao_menu == 10:
             # Murilo - Relatorio Anual
             pass
-        elif opcao_menu == 12:
+        elif opcao_menu == 11:
             # Murilo - Relatorio Anual PDF
             pass
-        elif opcao_menu == 13:
+        elif opcao_menu == 12:
             # Murilo - Relatorio Grafico (MatPloit Lib)
             pass
-        elif opcao_menu==14:
+        elif opcao_menu==13:
             print("--------------------")
             print("SAINDO DO APLICATIVO")
             print("--------------------")

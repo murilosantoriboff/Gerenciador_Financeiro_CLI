@@ -29,4 +29,7 @@ def registrar_despesa(mes, dados):
     for mes_despesa_total, resultado_despesa_total in dados.items():
         if mes_despesa_total == mes:
             resultado_despesa_total[f"desp-{nome_despesa}"] = valor_despesa
+            print("------------------------------------------------------")
+            print(f"Despesa de adicionada R${valor_despesa:.2f} ao mês {mes} com sucesso!")
+            print("------------------------------------------------------")
     return dados

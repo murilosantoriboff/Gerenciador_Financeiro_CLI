@@ -37,8 +37,7 @@ if __name__ == "__main__":
         elif opcao_menu == 10:
             relatorios_anuais.relatorio_anual(dados_mestre)
         elif opcao_menu == 11:
-            # Murilo - Relatorio Anual PDF
-            pass
+            pdf_generator.gerar_relatorio_anual_pdf(dados_mestre)
         elif opcao_menu == 12:
             # Murilo - Relatorio Grafico (MatPloit Lib)
             pass

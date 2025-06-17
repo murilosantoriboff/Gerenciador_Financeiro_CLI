@@ -1,5 +1,5 @@
 from utils import interface
-from modulos import investimentos, mostrar_dados, despesas, saques, alteracao, registro_investimento, relatorios_mensais, relatorios_anuais, pdf_generator
+from modulos import investimentos, mostrar_dados, despesas, saques, alteracao, registro_investimento, relatorios_mensais, relatorios_anuais, pdf_generator, graficos, financiamentos
 
 if __name__ == "__main__":
     dados_usuario = interface.interface_dados_usuario() # Retorna uma lista com os dados do user (Nome, valor e mes)
@@ -26,8 +26,7 @@ if __name__ == "__main__":
         elif opcao_menu == 6:
             investimentos.simular_investimento()
         elif opcao_menu == 7:
-            # Guiby Simular Financiamento
-            pass
+            financiamentos.simular_financiamento()
         elif opcao_menu == 8:
             mes_relat_mensal = relatorios_mensais.pedir_mes_relatorio_mensal()
             relatorios_mensais.relatorio_mensal(dados_mestre, mes_relat_mensal)
@@ -39,8 +38,7 @@ if __name__ == "__main__":
         elif opcao_menu == 11:
             pdf_generator.gerar_relatorio_anual_pdf(dados_mestre)
         elif opcao_menu == 12:
-            # Murilo - Relatorio Grafico (MatPloit Lib)
-            pass
+            graficos.gerar_grafico_financeiro(dados_mestre)
         elif opcao_menu==13:
             print("--------------------")
             print("SAINDO DO APLICATIVO")

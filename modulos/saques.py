@@ -5,14 +5,13 @@ def pedir_mes_saque():
     while True:
         try:
             print("-------------------------------------------")
-            mes_saque = int(input("Qual mes deseja registrar o saque: "))
+            mes_saque = int(input("Qual mês deseja registrar o saque: "))
             if 1 <= mes_saque <= 12:
                 return mes_saque
             else:
-                print("Mes invalido, por favor escolha um mes entre 1 e 12.")
+                print("Mês inválido, por favor escolha um mês entre 1 e 12.")
         except ValueError:
             print("Entrada inválida. Digite apenas números.")
-
 
 def registrar_saque(mes, dados):
     while True:
@@ -23,30 +22,55 @@ def registrar_saque(mes, dados):
             break  
         except ValueError:
             print("Entrada inválida. Digite apenas números.")
-            continue
-    for mes_user_saque, resultado_user_saque in dados.items():
-            if resultado_user_saque != {}:
-                nome_pessoa = resultado_user_saque["nome"]
-    for mes_saque_total, resultado_saque_total in dados.items():
-        if mes_saque_total == mes:
-            if "nome" not in dados[mes]:
-                dados[mes]["nome"] = nome_pessoa
-            else:
-                print(f"Nome cadastrado para o mês {mes}: {dados[mes]['nome']}")
-            if "valor" not in dados[mes]:
-                print("-------------------------------------------")
-                print(f"Não é possivel saquar R${valor_saque:.2f} ao mês {mes}!")
-                print("-------------------------------------------")
-                break
 
-            if dados[mes]["valor"] - valor_saque <0:
-                print("-------------------------------------------")
-                print(f"Não é possivel saquar R${valor_saque:.2f} ao mês {mes}!")
-                print("-------------------------------------------")
-                break
-            dados[mes]["valor"] -= valor_saque
-            resultado_saque_total[f"saque-{valor_saque}"] = valor_saque
+    nome_pessoa = "Usuário"
+    for resultado_para_nome_rel_pdf in dados.values():
+        if isinstance(resultado_para_nome_rel_pdf, dict) and "nome" in resultado_para_nome_rel_pdf:
+            nome_pessoa = resultado_para_nome_rel_pdf["nome"]
+
+    if mes not in dados:
+        dados[mes] = {}
+
+    if "nome" not in dados[mes]:
+        dados[mes]["nome"] = nome_pessoa
+    else:
+        print(f"Nome cadastrado para o mês {mes}: {dados[mes]['nome']}")
+
+    info = dados[mes]
+    saldo_valor = info.get("valor", 0)
+
+    if saldo_valor >= valor_saque:
+        info["valor"] -= valor_saque
+        info[f"saque-{valor_saque}"] = valor_saque
+        print("-------------------------------------------")
+        print(f"Saque de R${valor_saque:.2f} realizado com sucesso do saldo principal!")
+        print("-------------------------------------------")
+    else:
+        if saldo_valor > 0:
             print("-------------------------------------------")
-            print(f"Retirado R${valor_saque:.2f} ao mês {mes} com sucesso!")
+            print(f"Saldo insuficiente. Só é possível sacar dos investimentos se o saldo principal for zero.")
             print("-------------------------------------------")
+            return dados
+
+        saldo_invest = sum(v for k, v in info.items() if k.startswith("invest-"))
+        if saldo_invest >= valor_saque:
+            restante = valor_saque
+            for chave in list(info.keys()):
+                if chave.startswith("invest-") and restante > 0:
+                    if info[chave] >= restante:
+                        info[chave] -= restante
+                        restante = 0
+                    else:
+                        restante -= info[chave]
+                        info[chave] = 0
+
+            info[f"saque-{valor_saque}"] = valor_saque
+            print("-------------------------------------------")
+            print(f"Saque de R${valor_saque:.2f} realizado com sucesso dos investimentos!")
+            print("-------------------------------------------")
+        else:
+            print("-------------------------------------------")
+            print(f"Saldo insuficiente. Não é possível sacar R${valor_saque:.2f} no mês {mes}!")
+            print("-------------------------------------------")
+
     return dados

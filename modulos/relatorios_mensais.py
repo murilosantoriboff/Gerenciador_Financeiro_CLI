@@ -42,7 +42,7 @@ def relatorio_mensal(dados, mes_escolhido):
             if "invest" in k:
                 val_inv += v
         print(f"Nome do Registro/Mês: {nome_do_mes_str}")
-        print(f"Valor Total: R${dados_do_mes["valor"]}")
+        print(f"Valor Atual: R${dados_do_mes["valor"]}")
         print(f"Valor Total Despesas: R${val_desp}")
         print(f"Valor Total Investimento: R${val_inv}")
         print(f"Valor Total Saque: R${val_saq}")
